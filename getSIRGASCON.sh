@@ -10,7 +10,7 @@ sol=sss/ibg
 dir=desvios
 output=$dir/_ALL.tsv
 
-echo -e "# ep\td_lat\td_lon\tfecha" > $output
+echo -e "ep\td_lat\td_lon\tfecha" > $output
 
 for s in "${sem[@]}"
 do
