@@ -8,7 +8,7 @@ source convert.sh
 
 sol=sss/ibg
 dir=desvios
-output=$dir/_ALL.tsv
+output=$dir/__ALL.tsv
 
 echo -e "ep\td_lat\td_lon\tfecha" > $output
 

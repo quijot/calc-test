@@ -53,6 +53,12 @@ for file in glob.glob('desvios/????.tsv'):
   slon.append(a)
   slat.append(b)
 
+f = open('desvios/3sigma.tsv', 'w')
+f.write('ep\td_lat 99%\td_lon 99%\n')
+for i in range(1, len(eps)):
+  f.write('%s\t%s\t%s\n' % (eps[i], round(slat[i],3), round(slon[i],3)))
+f.close()
+
 # EPs con 3*sigma < 5 cm
 fig = plt.figure()
 ax = fig.add_subplot(111)
