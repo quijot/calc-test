@@ -55,7 +55,7 @@ for file in glob.glob('desvios/????.tsv'):
 
 f = open('desvios/3sigma.tsv', 'w')
 f.write('ep\td_lat 99%\td_lon 99%\n')
-for i in range(1, len(eps)):
+for i in range(0, len(eps)):
   f.write('%s\t%s\t%s\n' % (eps[i], round(slat[i],3), round(slon[i],3)))
 f.close()
 
@@ -66,7 +66,7 @@ ax = fig.add_subplot(111)
 ax.grid()
 ax.set_aspect('equal')
 ax.set_frame_on(False)
-for i in range(1, len(eps)):
+for i in range(0, len(eps)):
   if max(slon[i], slat[i]) < 0.05:
     ax.plot(slon[i], slat[i], 'o')
     ax.annotate(eps[i], xy=(slon[i], slat[i]+0.002), rotation=60)
@@ -82,7 +82,7 @@ ax = fig.add_subplot(111)
 ax.grid()
 ax.set_aspect('equal')
 ax.set_frame_on(False)
-for i in range(1, len(eps)):
+for i in range(0, len(eps)):
   if max(slon[i], slat[i]) > 0.05:
     ax.plot(slon[i], slat[i], 'o')
     ax.annotate(eps[i], xy=(slon[i], slat[i]+0.002), rotation=60)
