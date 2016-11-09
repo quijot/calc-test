@@ -7,8 +7,8 @@ eps=(ALUM AZUL BCAR CATA EBYP ESQU IGM1 LHCL LPGS MA01 MZAC RWSN SL01 SRLP TUCU 
 source convert.sh
 
 sol=sss/ibg
-csv=csv
-output=$csv/residuos.csv
+csv=desvios
+output=$csv/residuos.tsv
 
 echo -e "# ep\td_lat\td_lon\tfecha" > $output
 
@@ -21,7 +21,7 @@ do
     for ep in "${eps[@]}"
     do
         :
-        ep_output=$csv/$ep.csv
+        ep_output=$csv/$ep.tsv
         ep=$(cat $sol*P$s.crd | grep $ep | awk '{ print $2 }')
         x=$(cat $sol*P$s.crd | grep $ep | awk '{ print $4 }')
         y=$(cat $sol*P$s.crd | grep $ep | awk '{ print $5 }')

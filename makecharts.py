@@ -10,7 +10,7 @@ eps = []
 slat = []
 slon = []
 
-for file in glob.glob('csv/????.csv'):
+for file in glob.glob('desvios/????.tsv'):
   print('Procesando', file)
   x = []
   y = []
@@ -56,7 +56,7 @@ for file in glob.glob('csv/????.csv'):
 # EPs con 3*sigma < 5 cm
 fig = plt.figure()
 ax = fig.add_subplot(111)
-ax.set_title('EPs cuya confianza 99% < 0.05 m')
+#ax.set_title('EPs cuya confianza 99% < 0.05 m')
 ax.grid()
 ax.set_aspect('equal')
 ax.set_frame_on(False)
@@ -72,7 +72,7 @@ plt.close()
 # EPs con 3*sigma > 5 cm
 fig = plt.figure()
 ax = fig.add_subplot(111)
-ax.set_title('EPs cuya confianza 99% > 0.05 m')
+#ax.set_title('EPs cuya confianza 99% > 0.05 m')
 ax.grid()
 ax.set_aspect('equal')
 ax.set_frame_on(False)
