@@ -1,5 +1,6 @@
 #!/usr/bin/env python
-import vms2015, sumBL
+import vms2015
+import sumBL
 import datetime
 from pyproj import Geod, Proj, transform
 from coordp07 import posgar07
@@ -8,8 +9,10 @@ from coordp07 import posgar07
 def sign(number):
     """Will return 1 for positive
     or zero, and -1 for negative"""
-    try:return number/abs(number)
-    except ZeroDivisionError:return 1
+    try:
+        return number/abs(number)
+    except ZeroDivisionError:
+        return 1
 
 
 def toPOSGAR07(lat, lon, epoch):
@@ -17,8 +20,9 @@ def toPOSGAR07(lat, lon, epoch):
     fmt = '%Y-%m-%d'
     obsDate = datetime.datetime.strptime(epoch, fmt)
     obsDate = obsDate.timetuple()
-    obsDay = obsDate.tm_yday + 0.5 # es al mediodia
-    yearDays = datetime.datetime.strptime('%d-12-31' % obsDate.tm_year, fmt).timetuple()
+    obsDay = obsDate.tm_yday + 0.5  # es al mediodia
+    yearDays = datetime.datetime.strptime('%d-12-31'
+                                          % obsDate.tm_year, fmt).timetuple()
     obsEpoch = yearDays.tm_year + obsDay / yearDays.tm_yday
     # refDate 2011.322
     startEpoch = 2011.322
@@ -27,7 +31,6 @@ def toPOSGAR07(lat, lon, epoch):
     latd = round(lat)
     lond = round(lon)
     # arcos
-    g = Geod(ellps="GRS80")
     am = am1seg(latd, lond)
     ap = ap1seg(latd, lond)
     # correc
