@@ -71,9 +71,9 @@ def deviations(lat1, lon1, lat2, lon2):
     from pyproj import Geod
     g = Geod(ellps="GRS80")
     azi1, azi2, dLat = g.inv(lon1, lat1, lon1, lat2)
-    dLat = sign(azi1) * dLat
+    dLat = -dLat if lat1 > lat2 else dLat
     azi1, azi2, dLon = g.inv(lon1, lat1, lon2, lat1)
-    dLon = sign(azi1) * dLon
+    dLon = -dLon if lon1 > lon2 else dLon
     return dLat, dLon
 
 
