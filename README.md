@@ -14,4 +14,4 @@ Pruebas de exactitud para las correcciones de la [calculadora](http://www.fceia.
 
         $ python graph.py
 
-3. Buscar las gráficas en el directorio `plot`
+3. Buscar los resultados en el directorio [`results`](results)
